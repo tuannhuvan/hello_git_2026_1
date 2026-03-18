@@ -1,99 +1,83 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
 
-header {
-  background: #006400;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+/* Navbar */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px; background: #0a3d62; color: #fff;
 }
-
-nav {
-  background: #004d00;
-  padding: 10px;
-  text-align: center;
+.navbar .logo { font-size: 20px; font-weight: bold; }
+.navbar nav a {
+  color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500;
 }
+.navbar nav a:hover { text-decoration: underline; }
 
-nav a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
+/* Hero */
 .hero {
-  background: url('https://source.unsplash.com/1600x600/?industry,vietnam') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 20px;
-}
-
-.section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  color: #006400;
-  margin-bottom: 20px;
-}
-
-.cards {
+  height: 90vh;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 20s infinite;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* overlay tối để chữ nổi bật */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+@keyframes slideShow {
+  0%   { background-image: url('../img/3-enternews-1699952809.jpg'); }
+  33%  { background-image: url('../img/Khu-Cong-Nghiep-Binh-02.jpg'); }
+  66%  { background-image: url('../img/thu-phu-cong-nghiep-bac-ninh.jpg'); }
+  100% { background-image: url('../img/ban-do-khu-cong-nghiep-hai-phong-1.jpeg'); }
+}
+
+
+/* Sections */
+.section { padding: 60px 20px; text-align: center; }
+.section h2 { font-size: 32px; color: #0a3d62; margin-bottom: 20px; }
+
+/* Cards */
+.cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
 .card {
-  background: #f4f4f4;
-  border-radius: 8px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px; overflow: hidden; transition: transform 0.3s;
 }
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card h3 { margin: 15px 0; color: #0a3d62; }
+.card p { padding: 0 15px 20px; }
 
-.card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
+/* CTA Contact */
 .cta {
-  background: #006400;
-  color: #fff;
-  padding: 40px 20px;
-  text-align: center;
+  background: #0a3d62; color: #fff; padding: 60px 20px; text-align: center;
 }
-
-.cta h2 {
-  margin-bottom: 20px;
+.cta h2 { font-size: 28px; margin-bottom: 20px; }
+.contact-form {
+  display: flex; flex-direction: column; max-width: 500px; margin: 0 auto;
 }
-
-.cta a {
-  background: #fff;
-  color: #006400;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
+.contact-form input, .contact-form textarea {
+  margin-bottom: 15px; padding: 12px; border: none; border-radius: 5px;
 }
+.contact-form button { cursor: pointer; }
 
+/* Footer */
 footer {
-  background: #004d00;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
+  background: #022f40; color: #fff; text-align: center; padding: 20px;
 }
